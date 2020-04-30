@@ -119,7 +119,15 @@ logging {
         print-severity yes;
         print-category yes;
     };
-    category default{
+    channel default_syslog {
+        print-category yes;
+        syslog local5;
+        severity info;
+    };
+    category queries {
+        default_syslog;
+    };
+    category default {
         main_log;
     };
     category lame-servers {
