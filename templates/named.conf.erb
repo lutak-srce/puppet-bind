@@ -119,13 +119,14 @@ logging {
         print-severity yes;
         print-category yes;
     };
-    channel default_syslog {
-        print-category yes;
-        syslog local5;
+    channel queries_log {
+        file "/data/log/named/queries.log" versions 20 size 1000M;
         severity info;
+        print-time yes;
+        print-severity yes;
     };
     category queries {
-        default_syslog;
+        queries_log;
     };
     category default {
         main_log;
